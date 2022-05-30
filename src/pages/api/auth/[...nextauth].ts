@@ -11,6 +11,12 @@ const options = {
     }),
     // ...add more providers here
   ],
+  callbacks: {
+    async jwt({ token }) {
+      token.userRole = 'admin'
+      return token
+    },
+  },
 }
 
 export default NextAuth(options)
